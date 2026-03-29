@@ -10,6 +10,11 @@ let users = [
   { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
 ];
 
+// GET - Retrieve all users
+app.get('/api/users', (req, res) => {
+  res.json(users);
+});
+
 // GET - Retrieve a specific user
 app.get('/api/users/:id', (req, res) => {
   const user = users.find(u => u.id === parseInt(req.params.id));
