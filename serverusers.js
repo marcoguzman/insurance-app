@@ -10,6 +10,13 @@ let users = [
   { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
 ];
 
+// GET - Retrieve a specific user
+app.get('/api/users/:id', (req, res) => {
+  const user = users.find(u => u.id === parseInt(req.params.id));
+  if (!user) return res.status(404).json({ message: 'User not found' });
+  res.json(user);
+});
+
 // POST - Create a new user
 app.post('/api/users', (req, res) => {
   const newUser = {
