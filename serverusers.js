@@ -10,6 +10,11 @@ let users = [
   { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
 ];
 
+// GET - Retrieve all users
+    app.get('/api/users', (req, res) => {
+      res.json(users);
+    });
+
 // POST - Create a new user
 app.post('/api/users', (req, res) => {
   const newUser = {
